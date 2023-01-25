@@ -5,6 +5,8 @@ public class Game {
     private Team home;
     private Team away;
 
+    private int id;
+
     public Game(Team home, Team away) {
         this.home = home;
         this.away = away;
@@ -49,6 +51,14 @@ public class Game {
 
         Game game = (Game) o;
         return home.getName().equals(game.home.getName()) && away.getName().equals(game.away.getName());
+    }
+
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
     }
 }
 

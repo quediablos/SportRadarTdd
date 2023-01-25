@@ -7,9 +7,19 @@ public class ScoreBoard {
 
     private List<Game> games = new LinkedList<>();
 
+    private int nextGameId = 0;
+
     public int startGame(String home, String away) {
 
-        return 0;
+        Team homeTeam = new Team(home, 0);
+        Team awayTeam = new Team(away, 0);
+
+        Game game = new Game(homeTeam, awayTeam);
+        game.setId(nextGameId++);
+
+        games.add(game);
+
+        return game.getId();
     }
 
     public List<Game> getGames() {
