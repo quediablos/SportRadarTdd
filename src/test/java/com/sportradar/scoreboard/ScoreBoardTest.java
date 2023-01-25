@@ -5,6 +5,26 @@ import org.junit.Test;
 
 public class ScoreBoardTest {
 
+    private static final String TEAM_MEXICO = "Mexico";
+    private static final String TEAM_CANADA = "Canada";
+    private static final String TEAM_URUGUAY = "Uruguay";
+    private static final String TEAM_GERMANY = "Germany";
+    private static final String TEAM_ITALY = "Italy";
+    private static final String TEAM_SPAIN = "Spain";
+    private static final String TEAM_BRAZIL = "Brazil";
+    private static final String TEAM_AUSTRALIA = "Australia";
+    private static final String TEAM_ARGENTINA = "Argentina";
+    private static final String TEAM_FRANCE = "France";
+
+    private ScoreBoard initScoreBoardSingle() {
+
+        ScoreBoard scoreBoard = new ScoreBoard();
+
+        scoreBoard.startGame(TEAM_MEXICO,TEAM_CANADA);
+
+        return scoreBoard;
+    }
+
     @Test
     public void startGame_success() {
 
