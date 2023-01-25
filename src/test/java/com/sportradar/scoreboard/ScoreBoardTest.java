@@ -81,4 +81,13 @@ public class ScoreBoardTest {
         Assert.assertTrue(scoreBoard.getGames().get(0).getHome().getScore() == 2);
 
     }
+
+    @Test(expected = GameDoesNotExistException.class)
+    public void updateScore_errorWhenGameDoesNotExist() {
+
+        ScoreBoard scoreBoard = new ScoreBoard();
+
+        scoreBoard.updateScore(5,2,1);
+
+    }
 }

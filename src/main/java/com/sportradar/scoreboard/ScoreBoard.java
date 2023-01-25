@@ -55,7 +55,9 @@ public class ScoreBoard {
                 .findFirst().ifPresentOrElse(game -> {
                             game.getHome().setScore(homeScore);
                             game.getAway().setScore(awayScore);},
-                        () -> {throw new GameDoesNotExistException();});
+                        () -> {
+                    throw new GameDoesNotExistException();
+                });
     }
 
     public List<Game> getGames() {
