@@ -2,6 +2,7 @@ package com.sportradar.scoreboard;
 
 import java.util.LinkedList;
 import java.util.List;
+import java.util.ListIterator;
 
 public class ScoreBoard {
 
@@ -32,6 +33,17 @@ public class ScoreBoard {
 
     public void finishGame(int id) {
 
+        ListIterator<Game> iterator = games.listIterator();
+
+        while (iterator.hasNext()) {
+
+            //Game found.
+            if (iterator.next().getId() == id) {
+
+                iterator.remove();
+                return;
+            }
+        }
     }
 
     public List<Game> getGames() {
