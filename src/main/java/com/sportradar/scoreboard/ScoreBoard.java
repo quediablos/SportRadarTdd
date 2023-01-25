@@ -60,6 +60,11 @@ public class ScoreBoard {
                 });
     }
 
+    public List<Game> getSummary() {
+
+        return null;
+    }
+
     public List<Game> getGames() {
         return games;
     }
