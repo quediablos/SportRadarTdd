@@ -46,7 +46,7 @@ public class ScoreBoardTest {
     }
 
     @Test
-    public void startGame_success() {
+    public void startGame_addedTeamExists() {
 
         ScoreBoard scoreBoard = initScoreBoardSingle();
 
@@ -90,7 +90,7 @@ public class ScoreBoardTest {
     }
 
     @Test
-    public void updateScore_success() {
+    public void updateScore_newScoreIsStored() {
 
         ScoreBoard scoreBoard = new ScoreBoard();
 
