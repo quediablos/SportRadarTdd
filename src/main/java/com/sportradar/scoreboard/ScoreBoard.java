@@ -1,8 +1,6 @@
 package com.sportradar.scoreboard;
 
-import java.util.LinkedList;
-import java.util.List;
-import java.util.ListIterator;
+import java.util.*;
 
 public class ScoreBoard {
 
@@ -62,7 +60,26 @@ public class ScoreBoard {
 
     public List<Game> getSummary() {
 
-        return null;
+        List<Game> gamesSorted = new ArrayList<>(games);
+
+        //Sort by total score.
+        Collections.sort(gamesSorted, (o1, o2) -> {
+            if (o1.getTotalScore() < o2.getTotalScore())
+                return 1;
+            else if (o1.getTotalScore() > o2.getTotalScore())
+                return -1;
+            else {
+                //Sort by game id (adding order).
+                if (o1.getId() < o2.getId())
+                    return 1;
+                else if (o1.getId() > o2.getId())
+                    return -1;
+                else
+                    return 0;
+            }
+        });
+
+        return gamesSorted;
     }
 
     public List<Game> getGames() {
