@@ -60,4 +60,12 @@ public class ScoreBoardTest {
 
         Assert.assertTrue(scoreBoard.getGames().isEmpty());
     }
+
+    @Test(expected = GameDoesNotExistException.class)
+    public void finishGame_errorWhenGameDoesNotExist() {
+
+        ScoreBoard scoreBoard = new ScoreBoard();
+
+        scoreBoard.finishGame(5);
+    }
 }

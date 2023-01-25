@@ -44,6 +44,9 @@ public class ScoreBoard {
                 return;
             }
         }
+
+        //Game not found.
+        throw new GameDoesNotExistException();
     }
 
     public List<Game> getGames() {
