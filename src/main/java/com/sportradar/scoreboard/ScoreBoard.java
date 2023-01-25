@@ -30,6 +30,10 @@ public class ScoreBoard {
         return game.getId();
     }
 
+    public void finishGame(int id) {
+
+    }
+
     public List<Game> getGames() {
         return games;
     }
