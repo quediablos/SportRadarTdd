@@ -51,7 +51,11 @@ public class ScoreBoard {
 
     public void updateScore(int gameId, int homeScore, int awayScore) {
 
-
+        games.stream().filter(game -> game.getId() == gameId)
+                .findFirst().ifPresentOrElse(game -> {
+                            game.getHome().setScore(homeScore);
+                            game.getAway().setScore(awayScore);},
+                        () -> {throw new GameDoesNotExistException();});
     }
 
     public List<Game> getGames() {
