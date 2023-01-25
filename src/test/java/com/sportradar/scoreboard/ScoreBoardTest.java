@@ -48,4 +48,16 @@ public class ScoreBoardTest {
         ScoreBoard scoreBoard = initScoreBoardSingle();
         scoreBoard.startGame(TEAM_MEXICO,TEAM_CANADA);
     }
+
+    @Test
+    public void finishGame_finishedGameDoesNotExistAnymore() {
+
+        ScoreBoard scoreBoard = new ScoreBoard();
+
+        int gameId = scoreBoard.startGame(TEAM_MEXICO,TEAM_CANADA);
+
+        scoreBoard.finishGame(gameId);
+
+        Assert.assertTrue(scoreBoard.getGames().isEmpty());
+    }
 }
