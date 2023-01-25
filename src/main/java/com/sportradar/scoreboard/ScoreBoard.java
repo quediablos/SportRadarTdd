@@ -49,6 +49,11 @@ public class ScoreBoard {
         throw new GameDoesNotExistException();
     }
 
+    public void updateScore(int gameId, int homeScore, int awayScore) {
+
+
+    }
+
     public List<Game> getGames() {
         return games;
     }

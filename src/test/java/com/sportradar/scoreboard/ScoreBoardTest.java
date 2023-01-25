@@ -68,4 +68,17 @@ public class ScoreBoardTest {
 
         scoreBoard.finishGame(5);
     }
+
+    @Test
+    public void updateScore_success() {
+
+        ScoreBoard scoreBoard = new ScoreBoard();
+
+        int gameId = scoreBoard.startGame(TEAM_MEXICO,TEAM_CANADA);
+
+        scoreBoard.updateScore(gameId,2,1);
+
+        Assert.assertTrue(scoreBoard.getGames().get(0).getHome().getScore() == 2);
+
+    }
 }
