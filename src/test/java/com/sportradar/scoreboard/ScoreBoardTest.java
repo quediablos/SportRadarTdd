@@ -31,6 +31,21 @@ public class ScoreBoardTest {
         ScoreBoard scoreBoard = initScoreBoardSingle();
 
         Assert.assertTrue(scoreBoard.getGames().get(0).getHome().getName().equals(TEAM_MEXICO));
+    }
 
+    @Test
+    public void startGame_scoreIsZeroZero() {
+
+        ScoreBoard scoreBoard = initScoreBoardSingle();
+
+        Assert.assertTrue(scoreBoard.getGames().get(0).getHome().getScore() == 0);
+
+    }
+
+    @Test(expected = TeamAlreadyExistsException.class)
+    public void startGame_errorWhenSameTeamAdded() {
+
+        ScoreBoard scoreBoard = initScoreBoardSingle();
+        scoreBoard.startGame(TEAM_MEXICO,TEAM_CANADA);
     }
 }
