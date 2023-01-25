@@ -3,6 +3,8 @@ package com.sportradar.scoreboard;
 import org.junit.Assert;
 import org.junit.Test;
 
+import java.util.List;
+
 public class ScoreBoardTest {
 
     private static final String TEAM_MEXICO = "Mexico";
@@ -21,6 +23,24 @@ public class ScoreBoardTest {
         ScoreBoard scoreBoard = new ScoreBoard();
 
         scoreBoard.startGame(TEAM_MEXICO,TEAM_CANADA);
+
+        return scoreBoard;
+    }
+
+    private ScoreBoard initScoreBoardBig() {
+
+        ScoreBoard scoreBoard = new ScoreBoard();
+        int game0 = scoreBoard.startGame(TEAM_MEXICO,TEAM_CANADA);
+        int game1 = scoreBoard.startGame(TEAM_SPAIN, TEAM_BRAZIL);
+        int game2 = scoreBoard.startGame(TEAM_GERMANY, TEAM_FRANCE);
+        int game3 = scoreBoard.startGame(TEAM_URUGUAY,TEAM_ITALY);
+        int game4 = scoreBoard.startGame(TEAM_ARGENTINA,TEAM_AUSTRALIA);
+
+        scoreBoard.updateScore(game0,0,5);
+        scoreBoard.updateScore(game1,10,2);
+        scoreBoard.updateScore(game2,2,2);
+        scoreBoard.updateScore(game3,6,6);
+        scoreBoard.updateScore(game4,3,1);
 
         return scoreBoard;
     }
@@ -89,5 +109,16 @@ public class ScoreBoardTest {
 
         scoreBoard.updateScore(5,2,1);
 
+    }
+
+    @Test
+    public void getSummary_orderedByTotalScoreAndGameId() {
+
+        ScoreBoard scoreBoard = initScoreBoardBig();
+
+        List<Game> games = scoreBoard.getSummary();
+
+        Assert.assertTrue(games.get(0).getHome().getName().equals(TEAM_URUGUAY));
+        Assert.assertTrue(games.get(4).getHome().getName().equals(TEAM_GERMANY));
     }
 }
